@@ -30,8 +30,14 @@ memories in humans. Nature Neuroscience 25, 358-368 (2022). https://doi.org/10.1
 Relation to other releases: the article states that 19 of its 22 participants come from the 2022 study,
 "for whom we previously published single-neuron but not field potential data". Those single-neuron data
 are on DANDI as Dandiset 000207 (spike times only, no continuous signal). This release (16 participants)
-is the first public release of the field potentials. Subject labels are those of DANDI 000940; we found no
-public key that links them to labels of other Rutishauser-lab releases (e.g. DANDI 000207, 000623).
+is the first public release of the field potentials.
+Same participants in other releases: the NWB file identifiers carry the lab patient code (e.g. P62CS, TWH101;
+column lab_patient_code of participants.tsv). Where the same code appears in another public release with the same
+age and sex, participants.tsv names that subject (column same_participant_in): 9 of the 16 participants were also
+recorded in the Sternberg working-memory task of DANDI 000673 (Daume et al. 2024), and sub-8 (P62CS) also took part
+in the movie-watching study DANDI 000623 (NEMAR nm000357, sub-CS62). These are different tasks and recordings,
+not duplicates. One code (TWH116 here, P116TWH in DANDI 000673) has a different age and sex in the two releases
+and is not linked.
 
 Ethics
 ------
@@ -106,7 +112,8 @@ MRI was aligned to the CIT168 template in MNI152 coordinates; the coordinate spa
 
 Participants
 ------------
-participants.tsv: age and sex from NWB general/subject, species, recording institution, DANDI subject id.
+participants.tsv: age and sex from NWB general/subject, species, recording institution, DANDI subject id, lab
+patient code and the same participant in other public releases (see Overview).
 Recording year (scans.tsv) is the year of the NWB session_start_time, which the authors set to 1 January of
 the recording year to avoid disclosure of protected health information.
 
