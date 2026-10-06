@@ -34,7 +34,7 @@ is the first public release of the field potentials.
 Same participants in other releases: the NWB file identifiers carry the lab patient code (e.g. P62CS, TWH101;
 column lab_patient_code of participants.tsv). Where the same code appears in another public release with the same
 age and sex, participants.tsv names that subject (column same_participant_in): 9 of the 16 participants were also
-recorded in the Sternberg working-memory task of DANDI 000673 (Daume et al. 2024), and sub-8 (P62CS) also took part
+recorded in the Sternberg working-memory task of DANDI 000673 (Daume et al. 2024; NEMAR nm000368), and sub-8 (P62CS) also took part
 in the movie-watching study DANDI 000623 (NEMAR nm000357, sub-CS62). These are different tasks and recordings,
 not duplicates. One code (TWH116 here, P116TWH in DANDI 000673) has a different age and sex in the two releases
 and is not linked.
