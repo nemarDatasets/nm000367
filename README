@@ -1,0 +1,129 @@
+Cognitive boundaries and theta phase precession: human microwire LFP (Zheng et al. 2024, DANDI 000940)
+======================================================================================================
+
+Overview
+--------
+Microwire local field potentials (LFP) recorded from Behnke-Fried hybrid depth electrodes in patients with
+drug-resistant epilepsy undergoing invasive seizure monitoring at Toronto Western Hospital and Cedars-Sinai
+Medical Center, while they performed the cognitive-boundary memory paradigm: encoding of 90 silent movie
+clips with no boundary (NB), soft boundaries (SB, cuts within the same movie) or a hard boundary (HB, cut
+to a different movie), followed by a scene-recognition test (old/new with confidence) and a
+time-discrimination test (which of two frames came first, with confidence).
+Recording sites: amygdala, hippocampus and parahippocampal gyrus, and in some participants dorsal anterior
+cingulate cortex, pre-supplementary motor area and ventromedial prefrontal cortex.
+
+This dataset is an iEEG-BIDS representation of the LFP released by the authors in NWB format on DANDI:
+
+  Zheng J, Yebra M, Schjetnan A, Patel K, Katz C, Kyzar M, Mosher C, Kalia S, Chung J, Reed C, Valiante T,
+  Mamelak A, Rutishauser U (2024). Data for: Hippocampal Theta Phase Precession Supports Memory Formation
+  and Retrieval of Naturalistic Experience in Humans. DANDI archive. https://dandiarchive.org/dandiset/000940
+  (license CC-BY-4.0). At conversion time (2026-10-06) the Dandiset had no published version; the 16 NWB
+  assets were downloaded from the draft and verified against the DANDI SHA-256 digests listed in
+  sourcedata/sourcedata_provenance.json.
+
+  Article: Zheng J et al. Theta phase precession supports memory formation and retrieval of naturalistic
+  experience in humans. Nature Human Behaviour 8, 2423-2436 (2024). https://doi.org/10.1038/s41562-024-01983-9
+
+Please cite both. Task design: Zheng J et al. Neurons detect cognitive boundaries to structure episodic
+memories in humans. Nature Neuroscience 25, 358-368 (2022). https://doi.org/10.1038/s41593-022-01020-w
+
+Relation to other releases: the article states that 19 of its 22 participants come from the 2022 study,
+"for whom we previously published single-neuron but not field potential data". Those single-neuron data
+are on DANDI as Dandiset 000207 (spike times only, no continuous signal). This release (16 participants)
+is the first public release of the field potentials. Subject labels are those of DANDI 000940; we found no
+public key that links them to labels of other Rutishauser-lab releases (e.g. DANDI 000207, 000623).
+
+Ethics
+------
+From the article: "This study complies with all relevant ethical regulations. The study protocol was
+approved by the Research Ethics Board at Toronto Western Hospital (approval number: 15-5052; approval date:
+14 May 2021) and the Institutional Review Board at Cedars-Sinai Medical Center (approval number: Study572;
+approval date: 9 June 2020)." Patients "volunteered for this study and provided their informed consent".
+This deposit redistributes the publicly released data under its CC-BY-4.0 license.
+
+Contents
+--------
+16 participants, 16 recordings (one per participant), 388 microwire LFP channels (11-41 per
+recording), 200 Hz, 2694-3134 s per recording, 12.99 h in total; 7,200 trial rows and 27,358 TTL markers.
+
+  sub-<label>                  DANDI subject label (sub-2 ... sub-17; one recording per participant).
+  ieeg/*_ieeg.vhdr/.vmrk/.eeg  BrainVision, IEEE float32, microvolts, resolution 1.0.
+  ieeg/*_channels.tsv          one row per microwire, in the column order of the source series.
+  ieeg/*_electrodes.tsv        source coordinates of each microwire (one location per bundle).
+  ieeg/*_events.tsv            all trials of the three task parts and all TTL markers (see Events).
+  sub-*/sub-*_scans.tsv        recording year, source file, SHA-256 and float32 rounding error.
+  sourcedata/dandi-000940/     byte-identical copies of the 16 DANDI NWB files (+ dandiset.yaml);
+                               sourcedata/sourcedata_provenance.json lists size, SHA-256, DANDI asset id.
+
+Signal: what was converted and how
+----------------------------------
+Source: acquisition/LFPs (ElectricalSeries) of each NWB file: float64 values with unit "volts" and
+conversion 1e-06 (i.e. the stored numbers are microvolts), offset 0, regular 200 Hz clock starting at
+0 s. The NWB description reads "These are LFP recordings that have been downsampled to 200 Hz". The values
+were written to BrainVision as float32 microvolts; this is the only change (float32 rounding, at most
+0.00049 µV per file, reported per file in scans.tsv). No filtering, resampling, re-referencing, cropping
+or channel removal was done by this conversion.
+
+Processing already applied by the authors: broadband signals were recorded at 32 kHz (0.1-8000 Hz, Neuralynx
+ATLAS) and downsampled by the authors to the released 200 Hz series; the anti-aliasing filter of that step
+is not documented. The article describes, for its own analysis, removal of spike waveforms by linear
+interpolation over 3 ms around each detected spike and downsampling to 250 Hz; the released series is
+200 Hz and the NWB does not say whether spike interpolation was applied. The source electrodes table
+column "filtering" (300-3000 Hz) describes the spike-detection band, not the LFP.
+Channel type: BIDS has no microwire channel type; SEEG (depth electrode) is used and each channel is
+described as a microwire in channels.tsv. Only the microwires that are present in the source LFP series
+are included (11-41 per participant).
+
+Events
+------
+onset = NWB time - LFP starting_time (0 s in all files; the LFP covers the experiment from the start TTL).
+  encoding              one row per clip (intervals/encoding_table): Clip_name, stimCategory, boundary1/2/3_time,
+                        fixcross_time, ExperimentID.
+  scene_recognition     one row per test frame (intervals/recognition_table): frameName, stimuli_type
+                        (target = 1, foil = 0), old_new (response old = 2, new = 1), confidence, accuracy, RT,
+                        resp_value, source_response_time (NWB response_time), boundary_type, trial_num, fixcross_time.
+  time_discrimination   one row per test pair (intervals/timediscrimination_table): frameName, leftright,
+                        resp_key, resp_value, accuracy, confidence, RT, source_response_time, boundary_type, trial_num.
+  ttl                   every TTL marker (acquisition/events) with its experiment id (70 encoding,
+                        71 recognition, 72 time discrimination).
+All source columns are kept with their NWB names (names that BIDS reserves for events columns, here
+response_time, get the prefix source_) and the NWB column descriptions are copied into events.json. Times inside source columns (fixcross_time, boundary*_time, source_response_time) are absolute NWB
+times; they equal recording time because the LFP starts at 0 s.
+Note on stimCategory: the NWB column description says "1=no boundary (NB), 2=soft boundary (SB), 3=hard
+boundary (HB)", but the stored values are 0, 1 and 2; the authors' analysis code
+(cogboundary-phasepre-release-NWB, B01_raster_psth_encoding_SAligned_BSep_NWB.m) maps 0 = NB, 1 = SB,
+2 = HB. The boundary_type columns of the test tables use 1/2/3 as described.
+The movie clips are not distributed (copyright); the authors' README gives a download link
+(https://github.com/rutishauserlab/cogboundary-phasepre-release-NWB). The NWB OpticalSeries
+stimulus/presentation/ExternalVideos is a 200 x 50 x 50 x 3 placeholder ("Please contact authors for clips").
+
+Coordinates
+-----------
+electrodes.tsv gives the x, y, z of the NWB electrodes table in mm. The article states that electrode
+locations were obtained by co-registering post-operative CT with pre-operative MRI (Freesurfer) and that the
+MRI was aligned to the CIT168 template in MNI152 coordinates; the coordinate space label is therefore
+"Other" with that description (coordsystem.json). All microwires of one bundle share one coordinate.
+
+Participants
+------------
+participants.tsv: age and sex from NWB general/subject, species, recording institution, DANDI subject id.
+Recording year (scans.tsv) is the year of the NWB session_start_time, which the authors set to 1 January of
+the recording year to avoid disclosure of protected health information.
+
+Not converted (available unchanged in the NWB files under sourcedata/ and on DANDI)
+------------------------------------------------------------------------------------
+Spike-sorted single units (units table: spike times, electrodes, boundary_cell_flag, event_cell_flag,
+phase_precession_cell_flag) and the stimulus placeholder.
+
+Conversion checks
+-----------------
+- Every BrainVision file was read back with MNE-Python and compared with the source NWB: channel names and
+  order equal the NWB electrode region, sampling rate and sample count equal, every sample equals the
+  float32 representation of the source value (largest absolute difference to the float64 source
+  0.00049 µV, largest relative difference 6e-8), no non-finite values.
+- Every interval row and TTL marker was recomputed from the NWB (onset = time - starting_time); all match
+  events.tsv within 1 µs (rounding to 6 decimals); no event lies outside the recording.
+- The NWB copies in sourcedata/ match the DANDI SHA-256 digests.
+- bids-validator 3.0.2: 0 errors; warnings only for recommended fields the source does not document.
+
+Conversion code: b2dandi_rutishauser_bids.py (iEEG-NEMAR campaign, batch 2), using h5py and pybv.

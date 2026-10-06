@@ -1,0 +1,101 @@
+{
+  "onset": {
+    "Description": "Seconds from the first sample of the LFP recording: source NWB time minus the LFP starting_time (0.0 s). All NWB times share the session clock.",
+    "Units": "s"
+  },
+  "duration": {
+    "Description": "stop_time - start_time of the source interval row; 0 for point events.",
+    "Units": "s"
+  },
+  "sample": {
+    "Description": "round(onset * SamplingFrequency): zero-based sample index."
+  },
+  "trial_type": {
+    "Description": "Event class.",
+    "Levels": {
+      "encoding": "One row of the NWB table intervals/encoding_table (\"intervals for the encoding task\").",
+      "scene_recognition": "One row of the NWB table intervals/recognition_table (\"intervals for scene recognition task\").",
+      "time_discrimination": "One row of the NWB table intervals/timediscrimination_table (\"intervals for time discrimination task\").",
+      "ttl": "TTL marker from acquisition/events (code in value).",
+      "experiment_id": "Marker from acquisition/experiment_ids (only when not aligned with TTLs).",
+      "stimulus_presentation": "Picture presentation from stimulus/presentation/StimulusPresentation (IndexSeries; stimulus_index indexes the source StimulusTemplates)."
+    }
+  },
+  "value": {
+    "Description": "TTL code. Source description: The events coorespond to the TTL markers for each trial. For the encoding trials, the TTL markers are the following: 61 = start of the experiment, 1 = stimulus ON, 2 = stimulus OFF, 11 = Fix Cross, 3 = Probe, 4 = Response, 60 = End of Experiment"
+  },
+  "experiment_id": {
+    "Description": "Experiment id recorded at the same timestamp as the TTL. Source description: The experiment_ids correspond to the encoding, recognition or time discrimination trials. The encoding trials are demarcated by: 70. The recognition trials are demarcated by: 71. The time discrimination trials are demarcated by: 72"
+  },
+  "source_table": {
+    "Description": "NWB TimeIntervals table the row comes from."
+  },
+  "source_row_id": {
+    "Description": "Row id in that NWB table."
+  },
+  "source_start_time": {
+    "Description": "Original NWB time (start_time or timestamp) in the session clock.",
+    "Units": "s"
+  },
+  "source_stop_time": {
+    "Description": "Original NWB stop_time.",
+    "Units": "s"
+  },
+  "Clip_name": {
+    "Description": "Source NWB column copied verbatim. Source description: video clip shown during this trial"
+  },
+  "ExperimentID": {
+    "Description": "Source NWB column copied verbatim. Source description: [encoding] EXPERIMENT_ID; [scene_recognition] EXPERIMENT_ID; [time_discrimination] EXPERIMENT_ID"
+  },
+  "boundary1_time": {
+    "Description": "Source NWB column copied verbatim. Source description: time of first boundary (0 if it does not exist; absolute timestamp). For no boundary (NB), this is equal to 4s (same as HB). For hard boundary (HB) clips, this is the time of the HB. For soft boundary (SB) clips, this is the time of the first SB.. Times are absolute NWB session-clock seconds (subtract the LFP starting_time to get recording time)."
+  },
+  "boundary2_time": {
+    "Description": "Source NWB column copied verbatim. Source description: time of second boundary (0 if it does not exist; absolute timestamp). For HB clips, this is the time of first SB boundary. For SB clips, this is second SB boundary in the clip.. Times are absolute NWB session-clock seconds (subtract the LFP starting_time to get recording time)."
+  },
+  "boundary3_time": {
+    "Description": "Source NWB column copied verbatim. Source description: time of third boundary (0 if it does not exist; absolute timestamp). For HB clips, thisis the time of the second SB boundary. For SB clips, this is the third SB boundary of the clip.. Times are absolute NWB session-clock seconds (subtract the LFP starting_time to get recording time)."
+  },
+  "fixcross_time": {
+    "Description": "Source NWB column copied verbatim. Source description: [encoding] fix cross time. TTL=11; [scene_recognition] fix cross onset. TTL=11; [time_discrimination] Fixation cross onset. TTL=11. Times are absolute NWB session-clock seconds (subtract the LFP starting_time to get recording time)."
+  },
+  "stimCategory": {
+    "Description": "Source NWB column copied verbatim. Source description: 1=no boundary (NB), 2=soft boundary (SB), 3=hard boundary (HB). Note - HB clips can, in addition, also contain SB boundaries."
+  },
+  "RT": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] Reaction time; [time_discrimination] Reaction time"
+  },
+  "accuracy": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] correct = 2, incorrect 1, no response = 0; [time_discrimination] correct = 2, incorrect 1, no response = 0"
+  },
+  "boundary_type": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] 1=no boundary (NB), 2=soft boundary (SB), 3=hard boundary (HB); [time_discrimination] 1=no boundary (NB), 2=soft boundary (SB), 3=hard boundary (HB)"
+  },
+  "confidence": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] 3 = high, 2 = medium, 1 = low; [time_discrimination] 3 = high, 2 = medium, 1 = low"
+  },
+  "frameName": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] name of image shown; [time_discrimination] name of image shown"
+  },
+  "old_new": {
+    "Description": "Source NWB column copied verbatim. Source description: Response Old = 2, New = 1"
+  },
+  "resp_value": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] range = 2-7, -1=timeout; [time_discrimination] range = 2-7, -1=no response"
+  },
+  "source_response_time": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] Response time. TTL=4. In trials where no response occured, this time is set to 1ms offset from the frame stop time.; [time_discrimination] Response Time. TTL=4. In trials where no response occured, this time is set to 1ms offset from the frame stop time.. Times are absolute NWB session-clock seconds (subtract the LFP starting_time to get recording time)."
+  },
+  "stimuli_type": {
+    "Description": "Source NWB column copied verbatim. Source description: target (ground truth) = 1, foil = 0"
+  },
+  "trial_num": {
+    "Description": "Source NWB column copied verbatim. Source description: [scene_recognition] trial nr; [time_discrimination] trial nr"
+  },
+  "leftright": {
+    "Description": "Source NWB column copied verbatim. Source description: Left = 1, Right = 2"
+  },
+  "resp_key": {
+    "Description": "Source NWB column copied verbatim. Source description: left = 1, right = 2"
+  }
+}

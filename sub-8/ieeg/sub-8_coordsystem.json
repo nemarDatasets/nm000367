@@ -1,0 +1,7 @@
+{
+  "iEEGCoordinateSystem": "Other",
+  "iEEGCoordinateUnits": "mm",
+  "iEEGCoordinateSystemDescription": "x, y, z columns of the NWB electrodes table as released by the data authors. Zheng et al. (2024) state that each participant's preoperative MRI was aligned to the CIT168 template brain in MNI152 coordinates (affine followed by symmetric diffeomorphic normalisation) and report electrode MNI coordinates; the NWB columns carry no axis/space description, so a specific BIDS template label is not asserted. One coordinate per microwire bundle (all eight microwires of a Behnke-Fried electrode share the tip location; 'Each Behnke-Fried electrode shank had eight microwires on the tip and were marked as one anatomical location').",
+  "iEEGCoordinateProcessingDescription": "Electrode locations determined by co-registering postoperative CT and preoperative MRI with Freesurfer mri_robust_register, then normalisation of the preoperative MRI to the CIT168 template in MNI152 space (source: Zheng et al. 2024, Methods).",
+  "iEEGCoordinateProcessingReference": "https://doi.org/10.1038/s41562-024-01983-9"
+}

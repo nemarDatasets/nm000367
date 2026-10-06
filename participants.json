@@ -1,0 +1,8 @@
+{
+  "participant_id": {"Description": "BIDS subject label; equal to the DANDI subject label of DANDI 000940 (sub-2 ... sub-17)."},
+  "age": {"Description": "Age at the recording, from NWB general/subject/age (ISO 8601 duration, years).", "Units": "year"},
+  "sex": {"Description": "Sex from NWB general/subject/sex.", "Levels": {"F": "female", "M": "male"}},
+  "species": {"Description": "Species from NWB general/subject/species."},
+  "recording_institution": {"Description": "NWB general/institution of the session (hospital where the patient was recorded)."},
+  "dandi_subject_id": {"Description": "NWB general/subject/subject_id in the source file."}
+}

@@ -1,0 +1,42 @@
+{
+  "TaskDescription": "Cognitive-boundary paradigm (Zheng et al. 2022, 2024). Encoding: participants watched 90 novel silent movie clips (about 8 s each) that contained no boundary (NB, continuous shot), soft boundaries (SB, cuts to another scene of the same movie) or a hard boundary (HB, cut to a different movie), answering occasional yes/no questions. Scene recognition: old/new judgement with confidence on frames from the clips (targets) and foils. Time discrimination: choose which of two frames from a clip appeared first, with confidence. All three parts are in one continuous recording; events.tsv gives every trial.",
+  "Instructions": "Encoding: watch the clips and answer the occasional yes/no content question. Scene recognition: indicate whether the frame was seen (old) or not (new) and your confidence. Time discrimination: indicate which frame (left or right) appeared earlier and your confidence (Zheng et al. 2022, 2024).",
+  "Manufacturer": "Neuralynx",
+  "ManufacturersModelName": "ATLAS",
+  "ElectrodeManufacturer": "Ad-Tech Medical",
+  "ElectrodeManufacturersModelName": "Behnke-Fried hybrid macro-micro depth electrodes (micro inner wire bundle, 8 microwires of 40 µm diameter)",
+  "PowerLineFrequency": 60,
+  "HardwareFilters": {
+    "Broadband": {
+      "Description": "Broadband neural signals recorded at 32 kHz with 0.1-8000 Hz filtering (Zheng et al. 2024, Methods).",
+      "LowCutoffHz": 0.1,
+      "HighCutoffHz": 8000
+    }
+  },
+  "SoftwareFilters": {
+    "DownsamplingByAuthors": {
+      "Description": "The source series is described in the NWB as 'LFP recordings that have been downsampled to 200 Hz' (rate attribute 200 Hz) from the 32 kHz broadband signal. The anti-aliasing filter used for the released series is not documented. Zheng et al. (2024, Methods) describe, for their analysis, replacing the LFP in a 3 ms window centred on each detected spike by linear interpolation and downsampling from 32 kHz to 250 Hz; whether spike interpolation was applied to the released 200 Hz series is not stated. None of this was applied by the BIDS conversion."
+    }
+  },
+  "iEEGReference": "Not documented in the source release for these microwire recordings.",
+  "iEEGGround": "Not documented in the source release.",
+  "iEEGPlacementScheme": "Clinically placed hybrid depth electrodes for seizure monitoring in patients with drug-resistant epilepsy, sampling amygdala, hippocampus, parahippocampal gyrus and, in some participants, dorsal anterior cingulate cortex, pre-supplementary motor area and ventromedial prefrontal cortex. Only the microwires present in the source LFP series are included (the release includes LFP for a subset of the microwires).",
+  "iEEGElectrodeGroups": "Each source electrode is its own NWB ElectrodeGroup (NLX-microwires-<channel>); the channels.tsv group column gives the recording site (one Behnke-Fried bundle).",
+  "ElectricalStimulation": false,
+  "TaskName": "cogboundary",
+  "SamplingFrequency": 200.0,
+  "SEEGChannelCount": 22,
+  "ECOGChannelCount": 0,
+  "EEGChannelCount": 0,
+  "EOGChannelCount": 0,
+  "ECGChannelCount": 0,
+  "EMGChannelCount": 0,
+  "MiscChannelCount": 0,
+  "TriggerChannelCount": 0,
+  "RecordingDuration": 2852.25,
+  "RecordingType": "continuous",
+  "EpochLength": 0,
+  "InstitutionName": "Cedars-Sinai Medical Center",
+  "SoftwareVersions": "conversion: b2dandi_rutishauser_bids.py with pybv 0.8.1",
+  "LFPSeriesDescription": "These are LFP recordings that have been downsampled to 200 Hz"
+}

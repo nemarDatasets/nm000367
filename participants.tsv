@@ -1,0 +1,17 @@
+participant_id	age	sex	species	recording_institution	dandi_subject_id
+sub-2	52	F	Homo sapiens	Cedars-Sinai Medical Center	2
+sub-3	25	F	Homo sapiens	Toronto Western Hospital	3
+sub-4	49	M	Homo sapiens	Toronto Western Hospital	4
+sub-5	28	M	Homo sapiens	Toronto Western Hospital	5
+sub-6	38	M	Homo sapiens	Toronto Western Hospital	6
+sub-7	63	F	Homo sapiens	Toronto Western Hospital	7
+sub-8	25	F	Homo sapiens	Cedars-Sinai Medical Center	8
+sub-9	36	M	Homo sapiens	Toronto Western Hospital	9
+sub-10	25	F	Homo sapiens	Toronto Western Hospital	10
+sub-11	68	F	Homo sapiens	Toronto Western Hospital	11
+sub-12	63	F	Homo sapiens	Cedars-Sinai Medical Center	12
+sub-13	55	F	Homo sapiens	Cedars-Sinai Medical Center	13
+sub-14	25	F	Homo sapiens	Toronto Western Hospital	14
+sub-15	24	M	Homo sapiens	Toronto Western Hospital	15
+sub-16	25	M	Homo sapiens	Toronto Western Hospital	16
+sub-17	28	M	Homo sapiens	Toronto Western Hospital	17

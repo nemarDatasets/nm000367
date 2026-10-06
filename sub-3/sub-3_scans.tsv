@@ -1,0 +1,2 @@
+filename	recording_year	source_file	source_sha256	source_lfp_starting_time_s	float32_max_abs_error_uV
+ieeg/sub-3_task-cogboundary_ieeg.vhdr	2018	sourcedata/dandi-000940/sub-3/sub-3_ecephys+image.nwb	6c7b212c18f0638f9e8f2d949ce5e8b3a07b0da929e692e0e3965df112a360d7	0.0000000	5.91e-05
