@@ -1,9 +1,9 @@
 {
   "participant_id": {
-    "Description": "BIDS subject label; equal to the DANDI subject label of DANDI 000940 (sub-2 ... sub-17)."
+    "Description": "BIDS subject label; equal to the DANDI subject label of DANDI 000940 (sub-2 ... sub-17). Mapping to Zheng et al. 2024 (Nat Hum Behav) Supplementary Table 1: patient ID (= lab_patient_code), participant ID (= DANDI subject id), age and gender agree for all 16 subjects. The table lists 22 participants; 1 (P60CS), 18 (TWH129), 19 (TWH138), 20 (P70CS), 21 (P71CS) and 22 (P76CS) are not in DANDI 000940."
   },
   "age": {
-    "Description": "Age at the recording, from NWB general/subject/age (ISO 8601 duration, years).",
+    "Description": "Age at the recording, from NWB general/subject/age (ISO 8601 duration, years). Cohort (Zheng et al. 2024, Methods): 22 patients, 13 female, mean age 39 +/- 16 years (mean +/- s.d.); the ages agree with Supplementary Table 1 for all 16 released participants.",
     "Units": "year"
   },
   "sex": {
@@ -27,5 +27,44 @@
   },
   "same_participant_in": {
     "Description": "Subjects of other public releases with the same lab patient code AND the same age and sex in their NWB metadata (checked 2026-10-07 against DANDI 000623, 000940 and 000673); these are treated as the same person recorded in a different task/session. n/a = no such match."
+  },
+  "paper_participant_id": {
+    "Description": "Participant ID in Zheng et al. 2024 Supplementary Table 1 (equal to the DANDI subject id). Note: Zheng et al. 2022 (Nat Neurosci) Supplementary Table 2 numbers the same patients identically except P62CS (9 there) and TWH113 (8 there)."
+  },
+  "paper_n_neurons_inside_mtl": {
+    "Description": "Number of single neurons recorded inside the medial temporal lobe (Zheng et al. 2024, Supplementary Table 1, \"All neurons - Inside MTL\"). Spike data are not converted here (see README).",
+    "Units": "neurons"
+  },
+  "paper_n_neurons_outside_mtl": {
+    "Description": "Number of single neurons recorded outside the medial temporal lobe (Zheng et al. 2024, Supplementary Table 1, \"All neurons - Outside MTL\").",
+    "Units": "neurons"
+  },
+  "diagnosis": {
+    "Description": "Clinical indication. Zheng et al. 2024 (Methods): patients \"with refractory epilepsy\" implanted with electrodes for seizure monitoring."
+  },
+  "seizure_onset_zone": {
+    "Description": "Seizure onset zone, verbatim from Daume et al. 2024 (Nature) Supplementary Table S5, only for the 9 participants that are the same person in DANDI 000673 (column same_participant_in: same lab code, age and sex; see NEMAR nm000368). Zheng et al. 2024 and 2022 do not report it; n/a for the others. https://doi.org/10.1038/s41586-024-07309-z"
+  },
+  "implant_type": {
+    "Description": "Electrode type: Behnke-Fried hybrid macro-micro depth electrodes (Ad-Tech Medical); this release contains only the microwire LFP."
+  },
+  "recording_year": {
+    "Description": "Year of the recording as stated by DANDI 000940 (NWB session_start_time, which the authors set to 1 January of the recording year 'to avoid disclosure of protected health information (PHI)'; only the year is meaningful). All 16 files of DANDI 000940 state 2018, but DANDI 000673 (NEMAR nm000368) dates the sessions of 7 of the 9 shared patients to later years (P61CS, P62CS, P64CS, TWH109, TWH110, TWH113: 2019; P65CS: 2020). For those 7 the year is set to n/a here because the two releases disagree; for the others the 000940 value is kept as released and is unverified.",
+    "Units": "year"
+  },
+  "n_lfp_channels": {
+    "Description": "Number of microwire LFP channels in this release (rows of channels.tsv).",
+    "Units": "channels"
+  },
+  "lfp_regions": {
+    "Description": "Recording sites (NWB electrode group location, channels.tsv group column) of the released microwire LFP channels, with the hemisphere suffix given by the source; can be a subset of the implanted sites."
+  },
+  "lfp_hemispheres": {
+    "Description": "Hemisphere(s) of the released microwire LFP channels, derived from lfp_regions.",
+    "Levels": {
+      "left": "left hemisphere only",
+      "right": "right hemisphere only",
+      "bilateral": "both hemispheres"
+    }
   }
 }

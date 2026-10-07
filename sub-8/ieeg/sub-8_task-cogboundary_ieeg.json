@@ -37,6 +37,7 @@
   "RecordingType": "continuous",
   "EpochLength": 0,
   "InstitutionName": "Cedars-Sinai Medical Center",
+  "InstitutionAddress": "Los Angeles, CA, USA",
   "SoftwareVersions": "conversion: b2dandi_rutishauser_bids.py with pybv 0.8.1",
   "LFPSeriesDescription": "These are LFP recordings that have been downsampled to 200 Hz"
 }

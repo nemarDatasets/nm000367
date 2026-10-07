@@ -112,8 +112,29 @@ MRI was aligned to the CIT168 template in MNI152 coordinates; the coordinate spa
 
 Participants
 ------------
-participants.tsv: age and sex from NWB general/subject, species, recording institution, DANDI subject id, lab
-patient code and the same participant in other public releases (see Overview).
+Cohort (Zheng et al. 2024, Methods and Supplementary Table 1): 22 patients with refractory (drug-resistant)
+epilepsy (13 female; mean age 39 +/- 16 years) implanted with Behnke-Fried hybrid depth electrodes for seizure
+monitoring at Toronto Western Hospital and Cedars-Sinai Medical Center; 19 of them were already in Zheng et al.
+2022. This release contains 16 of the 22 (one recording each, recorded in 2018 according to the NWB files; see
+Known caveats). Not in DANDI 000940: paper participants 1 (P60CS), 18 (TWH129), 19 (TWH138), 20 (P70CS),
+21 (P71CS) and 22 (P76CS); P60CS, TWH129 (P129TWH), P70CS, P71CS and P76CS have Sternberg-task LFP in DANDI 000673
+(NEMAR nm000368, sub-4, sub-33, sub-12, sub-13, sub-16; same code, age and sex).
+
+participants.tsv columns:
+  age, sex, species, recording_institution, dandi_subject_id   NWB general/subject and general/institution.
+  lab_patient_code, same_participant_in                         NWB file identifier; links to other releases.
+  paper_participant_id, paper_n_neurons_inside_mtl/_outside_mtl Zheng et al. 2024 Supplementary Table 1. Patient
+                                                                ID, participant ID, age and gender in that table
+                                                                agree with lab_patient_code, dandi_subject_id, age
+                                                                and sex for all 16 participants (mapping proof).
+  diagnosis, implant_type                                       cohort-level facts from the article Methods.
+  seizure_onset_zone                                            Daume et al. 2024 (Nature) Supplementary Table S5,
+                                                                for the 9 participants linked to DANDI 000673;
+                                                                n/a for the other 7 (Zheng et al. 2022/2024 do
+                                                                not report it).
+  recording_year                                                year of NWB session_start_time (as scans.tsv).
+  n_lfp_channels, lfp_regions, lfp_hemispheres                  derived from channels.tsv of this release.
+Handedness, epilepsy duration/onset age, etiology and medication are not reported by the sources (n/a).
 Recording year (scans.tsv) is the year of the NWB session_start_time, which the authors set to 1 January of
 the recording year to avoid disclosure of protected health information.
 
@@ -134,3 +155,36 @@ Conversion checks
 - bids-validator 3.0.2: 0 errors; warnings only for recommended fields the source does not document.
 
 Conversion code: b2dandi_rutishauser_bids.py (iEEG-NEMAR campaign, batch 2), using h5py and pybv.
+
+Known caveats
+-------------
+- Recording year: all 16 NWB files state 2018-01-01, whereas DANDI 000673 dates the Sternberg sessions of 7 of
+  the 9 shared patients to 2019 (P61CS, P62CS, P64CS, TWH109, TWH110, TWH113) or 2020 (P65CS). In
+  participants.tsv recording_year is n/a for those 7; for the others the 2018 value is kept as released (unverified).
+- Numbering: Zheng et al. 2022 (Supplementary Table 2) numbers TWH113 as 8 and P62CS as 9; Zheng et al. 2024 and
+  this release use 8 = P62CS and 9 = TWH113. Use lab_patient_code to match the 2022 single-neuron release
+  (DANDI 000207).
+- stimCategory values 0/1/2 versus the NWB description 1/2/3 (see Events); the LFP anti-aliasing filter and
+  whether spike interpolation was applied are not documented (see Signal); the movie clips are not distributed.
+- One code (TWH116 here, P116TWH in DANDI 000673) has a different age and sex in the two releases and is not
+  linked.
+
+How to load
+-----------
+  from mne_bids import BIDSPath, read_raw_bids
+  bp = BIDSPath(root="nm000367", subject="2", task="cogboundary", datatype="ieeg")
+  raw = read_raw_bids(bp)            # 200 Hz microwire LFP in microvolts (MNE stores volts)
+  events = raw.annotations           # trials and TTL markers from events.tsv
+
+Citation
+--------
+Zheng J, Yebra M, Schjetnan AGP, Patel K, Katz CN, Kyzar M, Mosher CP, Kalia SK, Chung JM, Reed CM, Valiante TA,
+Mamelak AN, Kreiman G, Rutishauser U. Theta phase precession supports memory formation and retrieval of
+naturalistic experience in humans. Nature Human Behaviour 8, 2423-2436 (2024). doi:10.1038/s41562-024-01983-9
+and the data: DANDI:000940 (https://dandiarchive.org/dandiset/000940).
+
+Provenance of the 2026-10-07 metadata enrichment
+------------------------------------------------
+Zheng et al. 2024 Supplementary Information (Supplementary Table 1); Zheng et al. 2022 Nat Neurosci
+Supplementary Information (Supplementary Table 2); Daume et al. 2024 Nature Supplementary Information
+(Supplementary Table S5, doi:10.1038/s41586-024-07309-z); the release itself (channels.tsv, scans.tsv).

@@ -1,2 +1,9 @@
+1.0.1 2026-10-07
+  - 2026-10-07 metadata enrichment: participants.tsv/json (paper participant id and neuron counts from Zheng et al.
+    2024 Supplementary Table 1, mapping verified by lab code/id/age/sex for 16/16; seizure onset zone for the 9
+    participants shared with DANDI 000673 from Daume et al. 2024 Table S5; diagnosis, implant type, recording year,
+    LFP channel count, regions and hemispheres), scans.json recording_year caveat, README (cohort, caveats, how to
+    load, citation).
+
 1.0.0 2026-10-07
   - Initial iEEG-BIDS representation of the microwire LFP of DANDI 000940 (draft, 16 NWB assets, SHA-256 snapshot 2026-10-06).

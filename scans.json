@@ -1,5 +1,5 @@
 {
-  "recording_year": {"Description": "Year of the recording. The source sets NWB session_start_time to 1 January of the recording year 'to avoid disclosure of protected health information (PHI)'; only the year is therefore meaningful and no acq_time is given."},
+  "recording_year": {"Description": "Year of the recording. The source sets NWB session_start_time to 1 January of the recording year 'to avoid disclosure of protected health information (PHI)'; only the year is therefore meaningful and no acq_time is given. Caveat: all 16 files of DANDI 000940 state 2018, whereas DANDI 000673 (NEMAR nm000368) dates the Sternberg sessions of 7 of the 9 shared patients to 2019 or 2020 (P61CS, P62CS, P64CS, TWH109, TWH110, TWH113: 2019; P65CS: 2020); the value is kept as released but may not be the true recording year for every participant."},
   "source_file": {"Description": "Original NWB file (DANDI asset path) from which the recording was converted; byte-identical copy under sourcedata/dandi-000940/."},
   "source_sha256": {"Description": "SHA-256 of the source NWB file, equal to the DANDI asset digest dandi:sha2-256."},
   "source_lfp_starting_time_s": {"Description": "starting_time of acquisition/LFPs in the NWB session clock; event onsets are source times minus this value.", "Units": "s"},
