@@ -4,9 +4,20 @@
   "DatasetType": "raw",
   "License": "CC-BY-4.0",
   "Authors": [
-    "Jie Zheng", "Mar Yebra", "Andrea G. P. Schjetnan", "Kramay Patel", "Chaim N. Katz", "Michael Kyzar",
-    "Clayton P. Mosher", "Suneil K. Kalia", "Jeffrey M. Chung", "Chrystal M. Reed", "Taufik A. Valiante",
-    "Adam N. Mamelak", "Gabriel Kreiman", "Ueli Rutishauser"
+    "Jie Zheng",
+    "Mar Yebra",
+    "Andrea G. P. Schjetnan",
+    "Kramay Patel",
+    "Chaim N. Katz",
+    "Michael Kyzar",
+    "Clayton P. Mosher",
+    "Suneil K. Kalia",
+    "Jeffrey M. Chung",
+    "Chrystal M. Reed",
+    "Taufik A. Valiante",
+    "Adam N. Mamelak",
+    "Gabriel Kreiman",
+    "Ueli Rutishauser"
   ],
   "Acknowledgements": "Data collected and originally released by the authors above (Cedars-Sinai Medical Center, Toronto Western Hospital / University Health Network, Harvard Medical School, UC Davis). This iEEG-BIDS representation of the microwire local field potentials was produced by Bruno Aristimunha from the DANDI release (DANDI:000940, draft, assets snapshot 2026-10-06) without changing signal values; see README for the exact mapping. Original acknowledgement (Zheng et al. 2024): 'We thank the members of the Kreiman and Rutishauser laboratories for discussions and feedback and all participants and their families for their participation.'",
   "HowToAcknowledge": "Please cite the article: Zheng J, Yebra M, Schjetnan AGP, Patel K, Katz CN, Kyzar M, Mosher CP, Kalia SK, Chung JM, Reed CM, Valiante TA, Mamelak AN, Kreiman G, Rutishauser U. Theta phase precession supports memory formation and retrieval of naturalistic experience in humans. Nature Human Behaviour 8, 2423-2436 (2024). https://doi.org/10.1038/s41562-024-01983-9 ; and the source data: Zheng et al. (2024) Data for: Hippocampal Theta Phase Precession Supports Memory Formation and Retrieval of Naturalistic Experience in Humans. DANDI archive. https://dandiarchive.org/dandiset/000940",
@@ -27,12 +38,31 @@
     "https://doi.org/10.1038/s41593-022-01020-w",
     "https://dandiarchive.org/dandiset/000207"
   ],
-  "Keywords": ["intracranial", "microwire", "local field potential", "hippocampus", "amygdala", "theta", "phase precession", "episodic memory", "event boundaries", "human", "epilepsy"],
+  "Keywords": [
+    "intracranial",
+    "microwire",
+    "local field potential",
+    "hippocampus",
+    "amygdala",
+    "theta",
+    "phase precession",
+    "episodic memory",
+    "event boundaries",
+    "human",
+    "epilepsy"
+  ],
   "SourceDatasets": [
-    {"URL": "https://dandiarchive.org/dandiset/000940/draft", "Version": "draft (unpublished; 16 assets, SHA-256 snapshot 2026-10-06, see sourcedata/sourcedata_provenance.json)"}
+    {
+      "URL": "https://dandiarchive.org/dandiset/000940/draft",
+      "Version": "draft (unpublished; 16 assets, SHA-256 snapshot 2026-10-06, see sourcedata/sourcedata_provenance.json)"
+    }
   ],
   "GeneratedBy": [
-    {"Name": "b2dandi_rutishauser_bids.py (iEEG-NEMAR campaign, batch 2, 2026-10)",
-     "Description": "Writes acquisition/LFPs (ElectricalSeries) of each NWB file to BrainVision float32 microvolts (resolution 1.0) without filtering, resampling, re-referencing, cropping or channel removal; maps the encoding, scene-recognition and time-discrimination interval tables and the TTL markers to events; copies the original NWB files byte-identically into sourcedata/."}
-  ]
+    {
+      "Name": "b2dandi_rutishauser_bids.py (iEEG-NEMAR campaign, batch 2, 2026-10)",
+      "Description": "Writes acquisition/LFPs (ElectricalSeries) of each NWB file to BrainVision float32 microvolts (resolution 1.0) without filtering, resampling, re-referencing, cropping or channel removal; maps the encoding, scene-recognition and time-discrimination interval tables and the TTL markers to events; copies the original NWB files byte-identically into sourcedata/."
+    }
+  ],
+  "DatasetDOI": "10.82901/nemar.nm000367",
+  "Version": "1.0.0"
 }
