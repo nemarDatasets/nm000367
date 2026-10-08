@@ -2,8 +2,8 @@
   "version": "2.0",
   "pipeline_stage": "validated",
   "title": "Cognitive boundaries and theta phase precession: human microwire LFP during movie-clip encoding, scene recognition and time discrimination (Zheng et al. 2024, DANDI 000940)",
-  "description": "Microwire local field potentials recorded from Behnke-Fried depth electrodes in 16 patients with drug-resistant epilepsy during a cognitive-boundary memory paradigm. Participants encoded 90 silent movie clips containing no, soft, or hard event boundaries, then completed scene-recognition and time-discrimination tests. Recordings cover the amygdala, hippocampus, parahippocampal gyrus and several frontal sites at 200 Hz, and are provided as an iEEG-BIDS conversion of the DANDI 000940 NWB release.",
-  "methods_description": "Broadband signals were recorded at 32 kHz with Neuralynx ATLAS from hybrid depth electrodes in epilepsy patients undergoing invasive monitoring. The authors downsampled them to 200 Hz LFP, which was converted from NWB to BrainVision float32 microvolts without filtering, re-referencing or cropping. Task trials and TTL markers are mapped to events files.",
+  "description": "Microwire local field potentials (200 Hz) recorded from Behnke-Fried hybrid depth electrodes in 16 patients with drug-resistant epilepsy during a cognitive-boundary memory paradigm. Participants encoded 90 silent movie clips containing no, soft, or hard event boundaries, then completed a scene-recognition test and a time-discrimination test. Recording sites include the amygdala, hippocampus, and parahippocampal gyrus, with some participants also covering the dorsal anterior cingulate, pre-SMA, and ventromedial prefrontal cortex. This is an iEEG-BIDS representation of the authors' NWB release on DANDI (000940), supporting analyses of theta phase precession and episodic memory.",
+  "methods_description": "Broadband signals were recorded at 32 kHz with a Neuralynx ATLAS system from Behnke-Fried hybrid depth electrodes in epilepsy patients undergoing invasive seizure monitoring. The authors downsampled the signals to 200 Hz. The NWB LFP series were written to BrainVision float32 microvolts without filtering, resampling, re-referencing, or cropping. Task trials and TTL markers were mapped to BIDS events files.",
   "license": "CC-BY-4.0",
   "dataset_type": "raw",
   "authors": {
@@ -39,7 +39,10 @@
       "term": "intracranial EEG"
     },
     {
-      "term": "local field potentials"
+      "term": "local field potential"
+    },
+    {
+      "term": "microwire"
     },
     {
       "term": "Hippocampus",
@@ -55,15 +58,10 @@
       "term": "theta phase precession"
     },
     {
-      "term": "Episodic memory"
+      "term": "episodic memory"
     },
     {
       "term": "event boundaries"
-    },
-    {
-      "term": "Epilepsy",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D004827"
     }
   ],
   "related_identifiers": [
