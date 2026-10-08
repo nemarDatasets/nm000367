@@ -1,6 +1,11 @@
 {
   "version": "2.0",
   "pipeline_stage": "validated",
+  "title": "Cognitive boundaries and theta phase precession: human microwire LFP during movie-clip encoding, scene recognition and time discrimination (Zheng et al. 2024, DANDI 000940)",
+  "description": "Microwire local field potentials recorded from Behnke-Fried depth electrodes in 16 patients with drug-resistant epilepsy during a cognitive-boundary memory paradigm. Participants encoded 90 silent movie clips containing no, soft, or hard event boundaries, then completed scene-recognition and time-discrimination tests. Recordings cover the amygdala, hippocampus, parahippocampal gyrus and several frontal sites at 200 Hz, and are provided as an iEEG-BIDS conversion of the DANDI 000940 NWB release.",
+  "methods_description": "Broadband signals were recorded at 32 kHz with Neuralynx ATLAS from hybrid depth electrodes in epilepsy patients undergoing invasive monitoring. The authors downsampled them to 200 Hz LFP, which was converted from NWB to BrainVision float32 microvolts without filtering, re-referencing or cropping. Task trials and TTL markers are mapped to events files.",
+  "license": "CC-BY-4.0",
+  "dataset_type": "raw",
   "authors": {
     "Jie Zheng": {
       "orcid": "0000-0002-9086-3760"
@@ -29,6 +34,38 @@
       "orcid": "0000-0002-9207-7069"
     }
   },
+  "keywords": [
+    {
+      "term": "intracranial EEG"
+    },
+    {
+      "term": "local field potentials"
+    },
+    {
+      "term": "Hippocampus",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D006624"
+    },
+    {
+      "term": "Amygdala",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D000679"
+    },
+    {
+      "term": "theta phase precession"
+    },
+    {
+      "term": "Episodic memory"
+    },
+    {
+      "term": "event boundaries"
+    },
+    {
+      "term": "Epilepsy",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D004827"
+    }
+  ],
   "related_identifiers": [
     {
       "identifier": "10.1038/s41562-024-01983-9",
@@ -65,61 +102,24 @@
       "award_number": "R00NS126233"
     }
   ],
-  "title": "Cognitive boundaries and theta phase precession: human microwire LFP during movie-clip encoding, scene recognition and time discrimination (Zheng et al. 2024, DANDI 000940)",
-  "license": "CC-BY-4.0",
-  "dataset_type": "raw",
   "resource_type_general": "Dataset",
+  "resource_type_specific": "iEEG Dataset",
   "modalities": [
     "ieeg"
   ],
-  "resource_type_specific": "iEEG Dataset",
   "sizes": [
     "2.75 GB (49 files)"
   ],
   "formats": [
     ".eeg",
     ".json",
+    ".md",
     ".nwb",
     ".tsv",
     ".vhdr",
     ".vmrk",
-    ".yaml"
+    ".yaml",
+    ".yml"
   ],
-  "description": "An iEEG-BIDS representation of microwire local field potentials recorded from Behnke-Fried depth electrodes in 16 patients with drug-resistant epilepsy. Recordings were made in the amygdala, hippocampus, parahippocampal gyrus and some frontal sites during a cognitive-boundary memory paradigm: encoding of silent movie clips with no, soft or hard event boundaries, followed by scene-recognition and time-discrimination tests. The data support analyses of theta phase precession and episodic memory formation and retrieval. They were converted from the authors' NWB release on DANDI (000940) without altering signal values.",
-  "methods_description": "Microwire LFPs were recorded at 32 kHz (0.1-8000 Hz, Neuralynx ATLAS) and downsampled by the authors to 200 Hz. The NWB ElectricalSeries was written to BrainVision float32 microvolts without filtering, re-referencing, cropping or channel removal. Task trials (encoding, scene recognition, time discrimination) and TTL markers were mapped to events.tsv.",
-  "keywords": [
-    {
-      "term": "intracranial EEG"
-    },
-    {
-      "term": "local field potential"
-    },
-    {
-      "term": "Hippocampus",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D006624"
-    },
-    {
-      "term": "Amygdala",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D000679"
-    },
-    {
-      "term": "Theta Rhythm",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D013826"
-    },
-    {
-      "term": "episodic memory"
-    },
-    {
-      "term": "event boundaries"
-    },
-    {
-      "term": "Epilepsy",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D004827"
-    }
-  ],
-  "source_hash": "a18ec573b2e9009c7cd14e2b612af8f1a642f7359d7fd4e42ccf397948a511ed"
+  "source_hash": "6c29869b1589a477fc4ec90267694477ea23b178dfb39e080ca678c7470d2746"
 }
