@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "pipeline_stage": "validated",
-  "title": "Zheng-2024-theta-10.1038/s41562-024-01983-9",
+  "title": "Cognitive boundaries and theta phase precession: human microwire LFP during movie-clip encoding, scene recognition and time discrimination (Zheng et al. 2024, DANDI 000940)",
   "description": "Microwire local field potentials (200 Hz) recorded from Behnke-Fried hybrid depth electrodes in 16 patients with drug-resistant epilepsy during a cognitive-boundary memory paradigm. Participants encoded 90 silent movie clips containing no, soft, or hard event boundaries, then completed scene-recognition and time-discrimination tests. Recording sites include the amygdala, hippocampus, and parahippocampal gyrus, with some participants also sampled in frontal regions. This iEEG-BIDS representation was converted from the authors' NWB release on DANDI (000940) without altering signal values.",
   "methods_description": "Broadband signals were recorded at 32 kHz (0.1-8000 Hz, Neuralynx ATLAS) from microwires of Behnke-Fried electrodes and downsampled by the authors to 200 Hz. LFPs were converted from NWB to BrainVision float32 microvolts with no filtering, resampling, re-referencing, cropping, or channel removal. Encoding, scene-recognition, and time-discrimination trials and TTL markers were mapped to BIDS events files.",
   "license": "CC-BY-4.0",
@@ -123,5 +123,5 @@
     ".yaml",
     ".yml"
   ],
-  "source_hash": "e83f7963685ce3d0aed788f2c2a17a56e4c91d0f71f0343aba539d41a5a3bd13"
+  "source_hash": "189139ec585933e037c340c77ead20e6d3ee68948c5c32769e66d18654ae47d0"
 }

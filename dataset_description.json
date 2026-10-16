@@ -1,5 +1,5 @@
 {
-  "Name": "Zheng-2024-theta-10.1038/s41562-024-01983-9",
+  "Name": "Cognitive boundaries and theta phase precession: human microwire LFP during movie-clip encoding, scene recognition and time discrimination (Zheng et al. 2024, DANDI 000940)",
   "BIDSVersion": "1.10.0",
   "DatasetType": "raw",
   "License": "CC-BY-4.0",
@@ -64,5 +64,5 @@
     }
   ],
   "DatasetDOI": "10.82901/nemar.nm000367",
-  "Version": "1.0.1"
+  "Version": "1.0.2"
 }
