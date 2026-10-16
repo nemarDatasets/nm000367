@@ -2,8 +2,8 @@
   "version": "2.0",
   "pipeline_stage": "validated",
   "title": "Cognitive boundaries and theta phase precession: human microwire LFP during movie-clip encoding, scene recognition and time discrimination (Zheng et al. 2024, DANDI 000940)",
-  "description": "Microwire local field potentials (200 Hz) recorded from Behnke-Fried hybrid depth electrodes in 16 patients with drug-resistant epilepsy during a cognitive-boundary memory paradigm. Participants encoded 90 silent movie clips containing no, soft, or hard event boundaries, then completed scene-recognition and time-discrimination tests. Recording sites include the amygdala, hippocampus, and parahippocampal gyrus, with some participants also sampled in frontal regions. This iEEG-BIDS representation was converted from the authors' NWB release on DANDI (000940) without altering signal values.",
-  "methods_description": "Broadband signals were recorded at 32 kHz (0.1-8000 Hz, Neuralynx ATLAS) from microwires of Behnke-Fried electrodes and downsampled by the authors to 200 Hz. LFPs were converted from NWB to BrainVision float32 microvolts with no filtering, resampling, re-referencing, cropping, or channel removal. Encoding, scene-recognition, and time-discrimination trials and TTL markers were mapped to BIDS events files.",
+  "description": "Microwire local field potentials (200 Hz) recorded from Behnke-Fried hybrid depth electrodes in 16 patients with drug-resistant epilepsy during a cognitive-boundary memory paradigm. Participants encoded 90 silent movie clips with no, soft, or hard event boundaries, then completed scene-recognition and time-discrimination tests. Recording sites include the amygdala, hippocampus, and parahippocampal gyrus, with some participants also covering frontal regions. This is an iEEG-BIDS conversion of the NWB data released on DANDI (000940), supporting analyses of theta phase precession and episodic memory.",
+  "methods_description": "Broadband signals were recorded at 32 kHz with Neuralynx ATLAS and downsampled by the authors to 200 Hz. The NWB LFP series were written to BrainVision float32 microvolts without filtering, resampling, re-referencing, cropping, or channel removal. Encoding, scene-recognition, and time-discrimination interval tables and TTL markers were mapped to BIDS events files.",
   "license": "CC-BY-4.0",
   "dataset_type": "raw",
   "authors": {
@@ -42,7 +42,7 @@
       "term": "local field potential"
     },
     {
-      "term": "theta phase precession"
+      "term": "microwire"
     },
     {
       "term": "Hippocampus",
@@ -50,14 +50,10 @@
       "value_uri": "http://id.nlm.nih.gov/mesh/D006624"
     },
     {
-      "term": "Amygdala",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D000679"
+      "term": "theta phase precession"
     },
     {
-      "term": "Memory, Episodic",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D061212"
+      "term": "episodic memory"
     },
     {
       "term": "event boundaries"
