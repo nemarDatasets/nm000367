@@ -94,6 +94,10 @@ onset = NWB time - LFP starting_time (0 s in all files; the LFP covers the exper
                         resp_key, resp_value, accuracy, confidence, RT, source_response_time, boundary_type, trial_num.
   ttl                   every TTL marker (acquisition/events) with its experiment id (70 encoding,
                         71 recognition, 72 time discrimination).
+Every trial row (all 7,200: 1,440 encoding, 2,880 scene_recognition, 2,880 time_discrimination) has a ttl row at
+exactly the same onset: the NWB trial tables start each trial at its TTL. The two are separate source streams and
+both are kept, so an analysis that epochs on every events.tsv row counts each trial twice. Select rows by
+trial_type (e.g. exclude `ttl`) before epoching.
 All source columns are kept with their NWB names (names that BIDS reserves for events columns, here
 response_time, get the prefix source_) and the NWB column descriptions are copied into events.json. Times inside source columns (fixcross_time, boundary*_time, source_response_time) are absolute NWB
 times; they equal recording time because the LFP starts at 0 s.
