@@ -1,6 +1,11 @@
 1.0.3 2026-10-30
 
-  - Mark two flat channel sets bad and explain TTL rows
+  - sub-2 and sub-8 channels.tsv: every channel marked bad (status, status_description): the series have no low-
+    frequency LFP and are 100-200x smaller than the same patients' microwire LFP in nm000368. Signal values
+    unchanged.
+  - README: the published text is kept unchanged; a paragraph added after the events description explains that
+    each of the 7,200 trial rows has a ttl row at the same onset, and a new section "Amplitude check: sub-2 and
+    sub-8" gives the evidence for the bad marks.
 
 1.0.2 2026-10-16
   - Restore the descriptive dataset Name recorded in the v1.0.0 history. Update generated metadata title and source hash.
