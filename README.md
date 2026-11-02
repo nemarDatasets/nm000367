@@ -105,6 +105,13 @@ The movie clips are not distributed (copyright); the authors' README gives a dow
 (https://github.com/rutishauserlab/cogboundary-phasepre-release-NWB). The NWB OpticalSeries
 stimulus/presentation/ExternalVideos is a 200 x 50 x 50 x 3 placeholder ("Please contact authors for clips").
 
+Updated in version 1.0.3 by the depositors of this NEMAR copy (the published text above is kept unchanged; this note extends the events description):
+
+Every trial row (all 7,200: 1,440 encoding, 2,880 scene_recognition, 2,880 time_discrimination) has a ttl row at
+exactly the same onset: the NWB trial tables start each trial at its TTL. The two are separate source streams and
+both are kept, so an analysis that epochs on every events.tsv row counts each trial twice. Select rows by
+trial_type (e.g. exclude `ttl`) before epoching.
+
 Coordinates
 -----------
 electrodes.tsv gives the x, y, z of the NWB electrodes table in mm. The article states that electrode
@@ -190,3 +197,7 @@ Provenance of the 2026-10-07 metadata enrichment
 Zheng et al. 2024 Supplementary Information (Supplementary Table 1); Zheng et al. 2022 Nat Neurosci
 Supplementary Information (Supplementary Table 2); Daume et al. 2024 Nature Supplementary Information
 (Supplementary Table S5, doi:10.1038/s41586-024-07309-z); the release itself (channels.tsv, scans.tsv).
+
+## Amplitude check: sub-2 and sub-8 (version 1.0.3)
+
+sub-2 and sub-8 (the two FAILs of the 2026-10-18 amplitude check): every channel is marked `bad` in channels.tsv with a `status_description`. Their stored values come unchanged from the DANDI NWB (`acquisition/LFPs`, unit volts, conversion 1e-6, i.e. µV, as for every participant), but the series are not LFP: robust SD after a 1 Hz high-pass 0.055 µV (sub-2) and 0.11 µV (sub-8) against 11-50 µV in the other 14 participants, and their power spectra rise with frequency (sub-2 median power 4.6e-6 at 1-4 Hz vs 5.2e-5 µV^2/Hz at 70-99 Hz) instead of falling (sub-12: 69 vs 0.12). The same patients' microwire LFP in NEMAR nm000368 (DANDI 000673: sub-5 = P61CS = sub-2 here, sub-6 = P62CS = sub-8 here) has robust SD 11.5 and 9.6 µV and a normal falling spectrum, while for the two Cedars-Sinai participants that pass here the two datasets agree within 10% (sub-12/nm000368 sub-7: 15.0/16.4 µV; sub-13/sub-8: 16.7/15.1 µV). The ratio (100-200x) is not a power of ten, so this is not a unit error; the two series look derived from the 300-3000 Hz spike band (the electrode table's `filtering` column) rather than from the broadband signal. They are kept exactly as released. A few single channels of other participants (e.g. the first channel of sub-9, sub-10, sub-16, robust SD about 0.5 µV) are also very small; they are not flagged here. Evidence files: fix1019 `out/pubamp/` (Voyager Jobs ieeg-f19-pa-*, 19 Oct 2026).
